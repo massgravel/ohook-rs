@@ -1,0 +1,21 @@
+[package]
+name = "shook"
+version = "0.1.0"
+edition = "2021"
+rust-version = "1.77.1"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+windows-sys = "0.52"
+
+[profile.dev]
+lto = true
+opt-level = 1
+panic = "abort"
+
+[profile.release]
+lto = true
+panic = "abort"
+strip = true

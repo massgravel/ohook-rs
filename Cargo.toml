@@ -1,6 +1,9 @@
 [package]
 name = "shook"
 version = "0.1.0"
+description = "A rust implementation of ohook"
+repository = "https://github.com/massgravel/ohook-rs"
+license = "MIT"
 edition = "2021"
 rust-version = "1.77.1"
 

@@ -1,21 +1,27 @@
 [package]
-name = "shook"
-version = "0.1.0"
-description = "A rust implementation of ohook"
-repository = "https://github.com/massgravel/ohook-rs"
-license = "MIT"
 edition = "2021"
 rust-version = "1.77.1"
+name = "shook"
+version = "0.1.1"
+description = "A rust implementation of ohook"
+keywords = [
+    "activator",
+    "office",
+    "ohook",
+]
+categories = [
+    "no-std",
+    "no-std::no-alloc",
+]
+license = "MIT"
+repository = "https://github.com/massgravel/ohook-rs"
 
 [lib]
 crate-type = ["cdylib"]
 
-[dependencies]
-windows-sys = "0.52"
-
 [profile.dev]
-lto = true
 opt-level = 1
+lto = true
 panic = "abort"
 
 [profile.release]

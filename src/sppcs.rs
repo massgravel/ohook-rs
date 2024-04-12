@@ -1,132 +1,132 @@
 #![allow(non_snake_case)]
 
 #[no_mangle]
-fn SLCallServer() {}
+extern "system" fn SLCallServer() {}
 #[no_mangle]
-fn SLpAuthenticateGenuineTicketResponse() {}
+extern "system" fn SLpAuthenticateGenuineTicketResponse() {}
 #[no_mangle]
-fn SLpBeginGenuineTicketTransaction() {}
+extern "system" fn SLpBeginGenuineTicketTransaction() {}
 #[no_mangle]
-fn SLpClearActivationInProgress() {}
+extern "system" fn SLpClearActivationInProgress() {}
 #[no_mangle]
-fn SLpDepositDownlevelGenuineTicket() {}
+extern "system" fn SLpDepositDownlevelGenuineTicket() {}
 #[no_mangle]
-fn SLpDepositTokenActivationResponse() {}
+extern "system" fn SLpDepositTokenActivationResponse() {}
 #[no_mangle]
-fn SLpGenerateTokenActivationChallenge() {}
+extern "system" fn SLpGenerateTokenActivationChallenge() {}
 #[no_mangle]
-fn SLpGetGenuineBlob() {}
+extern "system" fn SLpGetGenuineBlob() {}
 #[no_mangle]
-fn SLpGetGenuineLocal() {}
+extern "system" fn SLpGetGenuineLocal() {}
 #[no_mangle]
-fn SLpGetLicenseAcquisitionInfo() {}
+extern "system" fn SLpGetLicenseAcquisitionInfo() {}
 #[no_mangle]
-fn SLpGetMSPidInformation() {}
+extern "system" fn SLpGetMSPidInformation() {}
 #[no_mangle]
-fn SLpGetMachineUGUID() {}
+extern "system" fn SLpGetMachineUGUID() {}
 #[no_mangle]
-fn SLpGetTokenActivationGrantInfo() {}
+extern "system" fn SLpGetTokenActivationGrantInfo() {}
 #[no_mangle]
-fn SLpIAActivateProduct() {}
+extern "system" fn SLpIAActivateProduct() {}
 #[no_mangle]
-fn SLpIsCurrentInstalledProductKeyDefaultKey() {}
+extern "system" fn SLpIsCurrentInstalledProductKeyDefaultKey() {}
 #[no_mangle]
-fn SLpProcessVMPipeMessage() {}
+extern "system" fn SLpProcessVMPipeMessage() {}
 #[no_mangle]
-fn SLpSetActivationInProgress() {}
+extern "system" fn SLpSetActivationInProgress() {}
 #[no_mangle]
-fn SLpTriggerServiceWorker() {}
+extern "system" fn SLpTriggerServiceWorker() {}
 #[no_mangle]
-fn SLpVLActivateProduct() {}
+extern "system" fn SLpVLActivateProduct() {}
 #[no_mangle]
-fn SLClose() {}
+extern "system" fn SLClose() {}
 #[no_mangle]
-fn SLConsumeRight() {}
+extern "system" fn SLConsumeRight() {}
 #[no_mangle]
-fn SLDepositMigrationBlob() {}
+extern "system" fn SLDepositMigrationBlob() {}
 #[no_mangle]
-fn SLDepositOfflineConfirmationId() {}
+extern "system" fn SLDepositOfflineConfirmationId() {}
 #[no_mangle]
-fn SLDepositOfflineConfirmationIdEx() {}
+extern "system" fn SLDepositOfflineConfirmationIdEx() {}
 #[no_mangle]
-fn SLDepositStoreToken() {}
+extern "system" fn SLDepositStoreToken() {}
 #[no_mangle]
-fn SLFireEvent() {}
+extern "system" fn SLFireEvent() {}
 #[no_mangle]
-fn SLGatherMigrationBlob() {}
+extern "system" fn SLGatherMigrationBlob() {}
 #[no_mangle]
-fn SLGatherMigrationBlobEx() {}
+extern "system" fn SLGatherMigrationBlobEx() {}
 #[no_mangle]
-fn SLGenerateOfflineInstallationId() {}
+extern "system" fn SLGenerateOfflineInstallationId() {}
 #[no_mangle]
-fn SLGenerateOfflineInstallationIdEx() {}
+extern "system" fn SLGenerateOfflineInstallationIdEx() {}
 #[no_mangle]
-fn SLGetActiveLicenseInfo() {}
+extern "system" fn SLGetActiveLicenseInfo() {}
 #[no_mangle]
-fn SLGetApplicationInformation() {}
+extern "system" fn SLGetApplicationInformation() {}
 #[no_mangle]
-fn SLGetApplicationPolicy() {}
+extern "system" fn SLGetApplicationPolicy() {}
 #[no_mangle]
-fn SLGetAuthenticationResult() {}
+extern "system" fn SLGetAuthenticationResult() {}
 #[no_mangle]
-fn SLGetEncryptedPIDEx() {}
+extern "system" fn SLGetEncryptedPIDEx() {}
 #[no_mangle]
-fn SLGetGenuineInformation() {}
+extern "system" fn SLGetGenuineInformation() {}
 #[no_mangle]
-fn SLGetInstalledProductKeyIds() {}
+extern "system" fn SLGetInstalledProductKeyIds() {}
 #[no_mangle]
-fn SLGetLicense() {}
+extern "system" fn SLGetLicense() {}
 #[no_mangle]
-fn SLGetLicenseFileId() {}
+extern "system" fn SLGetLicenseFileId() {}
 #[no_mangle]
-fn SLGetLicenseInformation() {}
+extern "system" fn SLGetLicenseInformation() {}
 #[no_mangle]
-fn SLGetPKeyId() {}
+extern "system" fn SLGetPKeyId() {}
 #[no_mangle]
-fn SLGetPKeyInformation() {}
+extern "system" fn SLGetPKeyInformation() {}
 #[no_mangle]
-fn SLGetPolicyInformation() {}
+extern "system" fn SLGetPolicyInformation() {}
 #[no_mangle]
-fn SLGetPolicyInformationDWORD() {}
+extern "system" fn SLGetPolicyInformationDWORD() {}
 #[no_mangle]
-fn SLGetSLIDList() {}
+extern "system" fn SLGetSLIDList() {}
 #[no_mangle]
-fn SLGetServiceInformation() {}
+extern "system" fn SLGetServiceInformation() {}
 #[no_mangle]
-fn SLInstallLicense() {}
+extern "system" fn SLInstallLicense() {}
 #[no_mangle]
-fn SLInstallProofOfPurchase() {}
+extern "system" fn SLInstallProofOfPurchase() {}
 #[no_mangle]
-fn SLInstallProofOfPurchaseEx() {}
+extern "system" fn SLInstallProofOfPurchaseEx() {}
 #[no_mangle]
-fn SLIsGenuineLocalEx() {}
+extern "system" fn SLIsGenuineLocalEx() {}
 #[no_mangle]
-fn SLLoadApplicationPolicies() {}
+extern "system" fn SLLoadApplicationPolicies() {}
 #[no_mangle]
-fn SLOpen() {}
+extern "system" fn SLOpen() {}
 #[no_mangle]
-fn SLPersistApplicationPolicies() {}
+extern "system" fn SLPersistApplicationPolicies() {}
 #[no_mangle]
-fn SLPersistRTSPayloadOverride() {}
+extern "system" fn SLPersistRTSPayloadOverride() {}
 #[no_mangle]
-fn SLReArm() {}
+extern "system" fn SLReArm() {}
 #[no_mangle]
-fn SLRegisterEvent() {}
+extern "system" fn SLRegisterEvent() {}
 #[no_mangle]
-fn SLRegisterPlugin() {}
+extern "system" fn SLRegisterPlugin() {}
 #[no_mangle]
-fn SLSetAuthenticationData() {}
+extern "system" fn SLSetAuthenticationData() {}
 #[no_mangle]
-fn SLSetCurrentProductKey() {}
+extern "system" fn SLSetCurrentProductKey() {}
 #[no_mangle]
-fn SLSetGenuineInformation() {}
+extern "system" fn SLSetGenuineInformation() {}
 #[no_mangle]
-fn SLUninstallLicense() {}
+extern "system" fn SLUninstallLicense() {}
 #[no_mangle]
-fn SLUninstallProofOfPurchase() {}
+extern "system" fn SLUninstallProofOfPurchase() {}
 #[no_mangle]
-fn SLUnloadApplicationPolicies() {}
+extern "system" fn SLUnloadApplicationPolicies() {}
 #[no_mangle]
-fn SLUnregisterEvent() {}
+extern "system" fn SLUnregisterEvent() {}
 #[no_mangle]
-fn SLUnregisterPlugin() {}
+extern "system" fn SLUnregisterPlugin() {}

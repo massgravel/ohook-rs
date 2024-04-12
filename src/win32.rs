@@ -1,11 +1,20 @@
+// Mostly copied from windows-sys
+
 use core::ffi::c_void;
-use windows_sys::core::{GUID, PCWSTR};
+
+#[repr(C)]
+pub struct Guid {
+    pub data1: u32,
+    pub data2: u16,
+    pub data3: u16,
+    pub data4: [u8; 8],
+}
 
 #[allow(non_snake_case)]
 #[allow(non_camel_case_types)]
 #[repr(C)]
 pub struct SL_LICENSING_STATUS {
-    pub SkuId: GUID,
+    pub SkuId: Guid,
     pub eStatus: i32,
     pub dwGraceTime: u32,
     pub dwTotalGraceDays: u32,
@@ -21,9 +30,9 @@ pub struct SL_LICENSING_STATUS {
 extern "system" {
     pub fn SLGetLicensingStatusInformation(
         hslc: *const c_void,
-        pappid: *const GUID,
-        pproductskuid: *const GUID,
-        pwszrightname: PCWSTR,
+        pappid: *const Guid,
+        pproductskuid: *const Guid,
+        pwszrightname: *const u16,
         pnstatuscount: *mut u32,
         pplicensingstatus: *mut *mut SL_LICENSING_STATUS,
     ) -> i32;
@@ -37,8 +46,8 @@ extern "system" {
 extern "system" {
     pub fn SLGetProductSkuInformation(
         hslc: *const c_void,
-        pproductskuid: *const GUID,
-        pwszvaluename: PCWSTR,
+        pproductskuid: *const Guid,
+        pwszvaluename: *const u16,
         pedatatype: *mut u32,
         pcbvalue: *mut u32,
         ppbvalue: *mut *mut u8,
@@ -64,9 +73,5 @@ extern "system" {
 )]
 #[cfg_attr(not(target_arch = "x86"), link(name = "SHLWAPI", kind = "raw-dylib"))]
 extern "system" {
-    pub fn StrStrNIW(
-        pszfirst: ::windows_sys::core::PCWSTR,
-        pszsrch: ::windows_sys::core::PCWSTR,
-        cchmax: u32,
-    ) -> ::windows_sys::core::PWSTR;
+    pub fn StrStrNIW(pszfirst: *const u16, pszsrch: *const u16, cchmax: u32) -> *mut u16;
 }

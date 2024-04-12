@@ -4,46 +4,46 @@ mod sppcs;
 mod win32;
 
 use core::{ffi::c_void, ptr::null_mut};
-use win32::{LocalFree, StrStrNIW, SL_LICENSING_STATUS};
-use win32::{SLGetLicensingStatusInformation, SLGetProductSkuInformation};
-
-use windows_sys::{
-    core::{GUID, PCWSTR},
-    w,
+use win32::{
+    Guid, LocalFree, SLGetLicensingStatusInformation, SLGetProductSkuInformation, StrStrNIW,
+    SL_LICENSING_STATUS,
 };
 
-unsafe fn is_grace_period_product(hslc: *const c_void, pproductskuid: *const GUID) -> bool {
+const GRACE: [u16; 6] = [0x47, 0x72, 0x61, 0x63, 0x65, 0x00];
+const NAME: [u16; 5] = [0x4e, 0x61, 0x6d, 0x65, 0x00];
+
+unsafe fn is_grace_period_product(hslc: *const c_void, pproductskuid: *const Guid) -> bool {
     let mut p_buffer = null_mut();
     let mut cb_size = 0;
 
     if SLGetProductSkuInformation(
         hslc,
         pproductskuid,
-        w!("Name"),
+        NAME.as_ptr(),
         null_mut(),
         &mut cb_size,
         &mut p_buffer,
     ) != 0
     {
-        LocalFree(p_buffer as *mut c_void);
+        LocalFree(p_buffer.cast());
         return false;
     }
 
-    if !StrStrNIW(p_buffer as *const u16, w!("Grace"), cb_size).is_null() {
-        LocalFree(p_buffer as *mut c_void);
+    if !StrStrNIW(p_buffer.cast(), GRACE.as_ptr(), cb_size).is_null() {
+        LocalFree(p_buffer.cast());
         return true;
     }
 
-    LocalFree(p_buffer as *mut c_void);
+    LocalFree(p_buffer.cast());
     false
 }
 
 #[no_mangle]
 unsafe extern "system" fn SLGetLicensingStatusInformationHook(
     hslc: *const c_void,
-    pappid: *const GUID,
-    pproductskuid: *const GUID,
-    pwszrightname: PCWSTR,
+    pappid: *const Guid,
+    pproductskuid: *const Guid,
+    pwszrightname: *const u16,
     pnstatuscount: *mut u32,
     pplicensingstatus: *mut *mut SL_LICENSING_STATUS,
 ) -> i32 {
